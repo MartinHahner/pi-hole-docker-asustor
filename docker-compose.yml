@@ -12,12 +12,13 @@ services:
       - "80:80/tcp"
       - "443:443/tcp"
     environment:
-      TZ: 'Europe/Stockholm'
+      TZ: 'Europe/Zurich'
     env_file:
         - ./password.env # WEBPASSWORD=MySecurePassword
     volumes:
       - './etc-pihole/:/etc/pihole/'
       - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
+      - './resolv.conf:/etc/resolv.conf'
     # Recommended but not required (DHCP needs NET_ADMIN)
     #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
     cap_add:
